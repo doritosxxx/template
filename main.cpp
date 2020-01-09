@@ -133,9 +133,6 @@ using namespace stlout;
 
 int main()
 {
-    $::timer t;
-    for(int i=0; i<1000000000; i++)
-        int a = 4;
-    cout << t.time();
+
     return 0;
 }

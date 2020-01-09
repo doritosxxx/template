@@ -26,7 +26,8 @@ namespace ${
     }
     template<typename T>
     T min(vector<T> &c){
-        if(!c.size())throw new exception();
+        if(!c.size())
+            throw domain_error("empty array");
         T _r = c.front();
         for(size_t i=1; i<c.size(); i++)
             _r = std::min(_r, c[i]);
@@ -34,35 +35,42 @@ namespace ${
     }
     template<typename T>
     T max(vector<T> &c){
-        if(!c.size())throw new exception();
+        if(!c.size())
+            throw domain_error("empty array");
         T _r = c.front();
         for(size_t i=1; i<c.size(); i++)
             _r = std::max(_r, c[i]);
         return _r;
     }
-    string toBase(long long from, int basis){
+    string toBase(long long from, int radix){
+        if(radix < 2 || radix > 36)
+            throw domain_error("radix must be at least 2 and no greater than 36");
         string _r = "";
         while(from){
-            _r+=numbersletters[from%basis];
-            from/=basis;
+            _r+=numbersletters[from%radix];
+            from/=radix;
         }
         reverse(all(_r));
         return _r;
     }
-    long long fromBase(string from, int basis){
+    long long fromBase(string from, int radix){
+        if(radix < 2 || radix > 36)
+            throw domain_error("radix must be at least 2 and no greater than 36");
         long long k = 1, _r = 0;
-        for(int i=from.size()-1; i>=0; i--, k*=basis)
+        for(int i=from.size()-1; i>=0; i--, k*=radix)
             _r += (from[i]-((from[i]<='9') ? '0' : 'a'-10))*k;
         return _r;
     }
-    long long fromBase(long long from, int basis){
+    long long fromBase(long long from, int radix){
+        if(radix < 2 || radix > 36)
+            throw domain_error("radix must be at least 2 and no greater than 36");
         string _arg = "";
         while(from){
             _arg += (from%10)+'0';
             from/=10;
         }
         reverse(all(_arg));
-        return fromBase(_arg, basis);
+        return fromBase(_arg, radix);
     }
 };
 
@@ -116,6 +124,6 @@ using namespace stlout;
 
 int main()
 {
-
+    cout << $::toBase(10, 2);
     return 0;
 }

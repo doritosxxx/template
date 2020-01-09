@@ -72,6 +72,15 @@ namespace ${
         reverse(all(_arg));
         return fromBase(_arg, radix);
     }
+
+    ///classes
+    class timer{
+        clock_t start = clock();
+    public:
+        float time(){
+            return 1.*(clock()-start)/CLOCKS_PER_SEC;
+        }
+    };
 };
 
 namespace stlout{
@@ -92,8 +101,8 @@ namespace stlout{
             o << " " << *it;
         return o;
     }
-    template<typename T>
 
+    template<typename T>
     ostream &operator<<(ostream &o, unordered_set<T> &c){
         auto it = c.begin();
         if(c.size()) o << *(it++);
@@ -124,6 +133,9 @@ using namespace stlout;
 
 int main()
 {
-    cout << $::toBase(10, 2);
+    $::timer t;
+    for(int i=0; i<1000000000; i++)
+        int a = 4;
+    cout << t.time();
     return 0;
 }

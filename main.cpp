@@ -17,6 +17,16 @@ namespace ${
         cin.tie(0);
         cout.tie(0);
     }
+    void file_input(string filename){
+        freopen(filename.c_str(), "r", stdin);
+    }
+    void file_output(string filename){
+        freopen(filename.c_str(), "w", stdout);
+    }
+    void files(string filename){
+        file_input(filename + ".in");
+        file_output(filename + ".out");
+    }
     long long gcd(long long a, long long b){
         while(b){
             a%=b;

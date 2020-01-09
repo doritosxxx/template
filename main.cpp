@@ -9,8 +9,8 @@ namespace ${
     const string tab =  "    ";
     const string numbers = "0123456789";
     const string letters = "abcdefghijklmnopqrstuvwxyz";
-    const string vowels = "euioa";
     const string numbersletters = "0123456789abcdefghijklmnopqrstuvwxyz";
+    const string vowels = "euioa";
     long long INF = INT_MAX;
     void fastio(){
         ios::sync_with_stdio(false);
@@ -24,7 +24,6 @@ namespace ${
         }
         return a;
     }
-
     template<typename T>
     T min(vector<T> &c){
         if(!c.size())throw new exception();
@@ -41,17 +40,30 @@ namespace ${
             _r = std::max(_r, c[i]);
         return _r;
     }
-    string toBasis(long long num, int basis){
+    string toBase(long long from, int basis){
         string _r = "";
-        while(num){
-            _r+=numbersletters[num%basis];
-            num/=basis;
+        while(from){
+            _r+=numbersletters[from%basis];
+            from/=basis;
         }
         reverse(all(_r));
         return _r;
     }
-
-
+    long long fromBase(string from, int basis){
+        long long k = 1, _r = 0;
+        for(int i=from.size()-1; i>=0; i--, k*=basis)
+            _r += (from[i]-((from[i]<='9') ? '0' : 'a'-10))*k;
+        return _r;
+    }
+    long long fromBase(long long from, int basis){
+        string _arg = "";
+        while(from){
+            _arg += (from%10)+'0';
+            from/=10;
+        }
+        reverse(all(_arg));
+        return fromBase(_arg, basis);
+    }
 };
 
 namespace stlout{
@@ -104,7 +116,6 @@ using namespace stlout;
 
 int main()
 {
-    cout << $::toBasis(255, 16);
 
     return 0;
 }

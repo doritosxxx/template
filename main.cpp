@@ -9,8 +9,8 @@ namespace ${
     const string tab =  "    ";
     const string numbers = "0123456789";
     const string letters = "abcdefghijklmnopqrstuvwxyz";
-    const string vowels = "euioa";
     const string numbersletters = "0123456789abcdefghijklmnopqrstuvwxyz";
+    const string vowels = "euioa";
     long long INF = INT_MAX;
     void fastio(){
         ios::sync_with_stdio(false);
@@ -111,7 +111,6 @@ namespace stlout{
     }
 
 }
-
 using namespace stlout;
 
 int main()

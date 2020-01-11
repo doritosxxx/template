@@ -91,6 +91,43 @@ namespace ${
             return 1.*(clock()-start)/CLOCKS_PER_SEC;
         }
     };
+    class DSU{
+        vector<int> data;
+        vector<int> sizes;
+        int _components;
+    public:
+        DSU(int _size){
+            data.resize(_size);
+            sizes.resize(_size, 1);
+            _components = _size;
+
+            for(int i=0; i<_size; i++)
+                data[i] = i;
+        }
+        int find(int v){
+            if(data[v] == v)
+                return v;
+            return data[v] = find(data[v]);
+        }
+        void merge(int v, int u){
+            v = this->find(v);
+            u = this->find(u);
+            if(v != u){
+                if(sizes[v] < sizes[u])
+                    swap(v,u);
+                data[u] = v;
+                sizes[v] += sizes[u];
+                sizes[u] = 0;
+                _components--;
+            }
+        }
+        int is_neighbours(int v, int u){
+            return this->find(v) == this->find(u);
+        }
+        int components_count(){
+            return _components;
+        }
+    };
 };
 
 namespace stlout{

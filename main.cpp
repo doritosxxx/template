@@ -139,6 +139,12 @@ namespace stlout{
         }
         return o;
     }
+    template<typename T>
+    istream &operator>>(istream &_i, vector<T> &c){
+        for(int i=0; i<c.size(); i++)
+            _i >> c[i];
+        return _i;
+    }
 
     template<typename T>
     ostream &operator<<(ostream &o, set<T> &c){

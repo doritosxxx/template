@@ -182,11 +182,17 @@ namespace stlout{
 }
 using namespace stlout;
 
-
+struct Element{
+    int a,b;
+    friend ostream &operator<<(ostream &o, Element &_this){
+        return o << "(" << _this.a << "," << _this.b << ")";
+    }
+};
 
 int main()
 {
-
+    vector<Element> x = {{1,2}, {228,133}, {-23,0}};
+    cout << x;
     return 0;
 }
 

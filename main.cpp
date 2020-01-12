@@ -87,7 +87,7 @@ namespace ${
     class timer{
         clock_t start = clock();
     public:
-        float time(){
+        double time(){
             return 1.*(clock()-start)/CLOCKS_PER_SEC;
         }
     };
@@ -107,7 +107,7 @@ namespace ${
         int find(int v){
             if(data[v] == v)
                 return v;
-            return data[v] = find(data[v]);
+            return data[v] = this->find(data[v]);
         }
         void merge(int v, int u){
             v = this->find(v);
@@ -121,10 +121,10 @@ namespace ${
                 _components--;
             }
         }
-        int is_neighbours(int v, int u){
+        bool is_neighbours(int v, int u){
             return this->find(v) == this->find(u);
         }
-        int components_count(){
+        int count(){
             return _components;
         }
     };
@@ -133,16 +133,16 @@ namespace ${
 namespace stlout{
     template<typename T>
     ostream &operator<<(ostream &o, vector<T> &c){
-        for(int i=0; i<c.size(); i++){
+        for(size_t i=0; i<c.size(); i++){
             o << c[i];
             if(i != c.size()-1) o << " ";
         }
         return o;
     }
     template<typename T>
-    istream &operator>>(istream &_i, vector<T> &c){
-        for(int i=0; i<c.size(); i++)
-            _i >> c[i];
+    istream &operator>>(istream &_i, vector<T> &v){
+        for(size_t i=0; i<v.size(); i++)
+            _i >> v[i];
         return _i;
     }
 
@@ -179,8 +179,8 @@ namespace stlout{
             o << $::tab << it.first << " => " << it.second << endl;
         return o << "}";
     }
-
 }
+
 
 using namespace stlout;
 

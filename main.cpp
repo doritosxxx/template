@@ -180,12 +180,19 @@ namespace stlout{
         return o << "}";
     }
 }
-
-
 using namespace stlout;
+
+
 
 int main()
 {
+    vector<int> x(5);
+    cin >> x;
+    cout << x;
 
     return 0;
 }
+
+
+
+

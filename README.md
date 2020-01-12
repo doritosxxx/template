@@ -98,21 +98,21 @@ C++ $template
     
 ### Примеры использования
 
-* **Ввод и вывод std::vector**
+* **Ввод и вывод vector**
 
   ![](img/code1.png) 
 
   ![](img/res1.png) 
 
 
-* **Вывод std::set**
+* **Вывод set**
 
   ![](img/code2.png) 
 
   ![](img/res2.png) 
 
 
-* **Вывод std::map**
+* **Вывод map**
 
   ![](img/code3.png) 
 

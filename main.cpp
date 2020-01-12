@@ -182,13 +182,9 @@ namespace stlout{
 }
 using namespace stlout;
 
-
 int main()
 {
 
     return 0;
 }
-
-
-
 

@@ -92,4 +92,29 @@ C++ $template
     
 ### Примеры использования
 
-   
+**Ввод и вывод std::vector**
+
+![](img/code1.png) 
+
+![](img/res1.png) 
+
+
+**Вывод std::set**
+
+![](img/code2.png) 
+
+![](img/res2.png) 
+
+
+**Вывод std::map**
+
+![](img/code3.png) 
+
+![](img/res3.png) 
+
+
+**Вывод своего класса**
+
+![](img/code4.png) 
+
+![](img/res4.png) 

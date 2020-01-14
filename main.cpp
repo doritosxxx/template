@@ -13,6 +13,7 @@ namespace ${
     const string numbersletters = "0123456789abcdefghijklmnopqrstuvwxyz";
     const string vowels = "euioa";
     long long INF = INT_MAX;
+    long long MOD = 1e9+7;
     void fastio(){
         ios::sync_with_stdio(false);
         cin.tie(0);
